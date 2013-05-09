@@ -1,0 +1,51 @@
+﻿<Controls:MetroWindow x:Class="OTRS_Ticket_Gen_v2_Rebirth.RecommendationWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recommendations" Height="356" Width="279" ResizeMode="NoResize" ShowMinButton="False" ShowMaxRestoreButton="False" ShowCloseButton="False">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Red.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Label Content="Preservation" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_Preservation" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="253">
+            <ComboBoxItem Content="PCAP"/>
+            <ComboBoxItem Content="Memory Image"/>
+            <ComboBoxItem Content="Disk Image"/>
+            <ComboBoxItem Content="None"/>
+        </ComboBox>
+        <Label Content="Containment" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_Containment" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="253">
+            <ComboBoxItem Content="Network Disconnect - Link Termination"/>
+            <ComboBoxItem Content="Network Disconnect - Null Route"/>
+            <ComboBoxItem Content="Power - Off System(s)"/>
+            <ComboBoxItem Content="None"/>
+        </ComboBox>
+        <Label Content="Investigation" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_Investigation" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="253">
+            <ComboBoxItem Content="Offline Anti - Malware Scan"/>
+            <ComboBoxItem Content="Log Review"/>
+            <ComboBoxItem Content="Network Traffic Analysis"/>
+            <ComboBoxItem Content="Forensic Drive / Memory Analysis"/>
+            <ComboBoxItem Content="None"/>
+        </ComboBox>
+        <Label Content="Remediation" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_Remediation" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top" Width="253">
+            <ComboBoxItem Content="System Rebuild"/>
+            <ComboBoxItem Content="Anti-Malware Clean-Up"/>
+            <ComboBoxItem Content="Data Sanitization"/>
+            <ComboBoxItem Content="None"/>
+        </ComboBox>
+        <Button x:Name="b_RWClose" Content="CLOSE" HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top" Width="253" Click="b_RWClose_Click"/>
+
+    </Grid>
+</Controls:MetroWindow>

@@ -1,0 +1,42 @@
+﻿<Controls:MetroWindow x:Class="OTRS_Ticket_Gen_v2_Rebirth.OverViewWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Overview Input" Height="419" Width="199" ResizeMode="NoResize" ShowMinButton="False" ShowMaxRestoreButton="False" ShowCloseButton="False">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Red.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+
+        <ComboBox x:Name="cb_securityAlertLevel" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="High"/>
+            <ComboBoxItem Content="Medium"/>
+            <ComboBoxItem Content="Low"/>
+        </ComboBox>
+        <Label Content="Security Alert Rating" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="b_saveOverview" Content="CLOSE" HorizontalAlignment="Left" Margin="11,358,0,0" VerticalAlignment="Top" Width="175" Click="b_saveOverview_Click" Grid.ColumnSpan="2"/>
+        <Label Content="Security Alert Type" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="119" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cb_securityAlertType" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="Common Malware"/>
+            <ComboBoxItem Content="Targeted Attack"/>
+            <ComboBoxItem Content="Network Intrusion"/>
+            <ComboBoxItem Content="Suspicious Network Activity"/>
+        </ComboBox>
+        <Label Content="Date of Alert" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_date" HorizontalAlignment="Left" Height="23" Margin="10,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Grid.ColumnSpan="2"/>
+        <Label Content="Time of Alert" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_time" HorizontalAlignment="Left" Height="23" Margin="11,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Grid.ColumnSpan="2"/>
+        <Label Content="Duration of Alert" HorizontalAlignment="Left" Margin="11,258,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_duration" HorizontalAlignment="Left" Height="23" Margin="10,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Controls:MetroWindow>

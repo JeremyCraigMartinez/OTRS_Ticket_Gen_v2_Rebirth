@@ -1,0 +1,52 @@
+﻿<Controls:MetroWindow x:Class="OTRS_Ticket_Gen_v2_Rebirth.MachineWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MACHINE INFORMATION" Height="500" Width="653" ResizeMode="NoResize" ShowMinButton="False" ShowMaxRestoreButton="False" ShowCloseButton="False">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Red.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Button x:Name="b_MClose" Content="CLOSE" HorizontalAlignment="Left" Margin="10,429,0,0" VerticalAlignment="Top" Width="628" Click="b_MClose_Click"/>
+        <Label Content="MACHINE'S IP" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_IP" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="MACHINE'S MAC" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_MAC" HorizontalAlignment="Left" Height="23" Margin="10,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="USER NAME" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_userName" HorizontalAlignment="Left" Height="23" Margin="10,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="Blacklisted IP(s)" HorizontalAlignment="Left" Margin="267,15,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="150" Margin="267,46,0,0" VerticalAlignment="Top" Width="120" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        <Label Content="INFORMATION SOURCE" HorizontalAlignment="Left" Margin="414,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_source" HorizontalAlignment="Left" Height="23" Margin="414,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="MESSAGE" HorizontalAlignment="Left" Margin="414,72,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_message" HorizontalAlignment="Left" Height="23" Margin="414,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="COUNT" HorizontalAlignment="Left" Margin="414,134,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_count" HorizontalAlignment="Left" Height="23" Margin="414,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="LOCATION" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_Location" HorizontalAlignment="Left" Height="23" Margin="10,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="RESIDENT" HorizontalAlignment="Left" Margin="10,272,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_Resident" HorizontalAlignment="Left" Height="23" Margin="10,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="ROOM" HorizontalAlignment="Left" Margin="267,210,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_Room" HorizontalAlignment="Left" Height="23" Margin="267,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="OFFENSE NUMBER" HorizontalAlignment="Left" Margin="267,272,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_OffenseNumber" HorizontalAlignment="Left" Height="23" Margin="267,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="SWITCH INFORMATION" HorizontalAlignment="Left" Margin="414,210,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_Switch" HorizontalAlignment="Left" Height="23" Margin="414,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="JACK ID" HorizontalAlignment="Left" Margin="414,272,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_Jack" HorizontalAlignment="Left" Height="23" Margin="414,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="DHCP DEPARTMENT" HorizontalAlignment="Left" Margin="10,350,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_dhcpD" HorizontalAlignment="Left" Height="23" Margin="10,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="DHCP SUPPORT CONTACT" HorizontalAlignment="Left" Margin="267,350,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_dhcpC" HorizontalAlignment="Left" Height="23" Margin="267,381,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="371"/>
+
+    </Grid>
+</Controls:MetroWindow>
