@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Outlook = Microsoft.Office.Interop.Outlook;
 using MahApps.Metro.Controls;
 
 namespace OTRS_Ticket_Gen_v2_Rebirth
@@ -27,6 +26,9 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
         private Credentials CWindow;
         private RecommendationWindow RWindow;
         private MachineWindow MWindow;
+        private string emailBody;
+        private string head;
+        private Email_Preview preview;
         #endregion
 
         public MainWindow()
@@ -36,19 +38,27 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
             CWindow = new Credentials();
             RWindow = new RecommendationWindow();
             MWindow = new MachineWindow();
+            preview = new Email_Preview();
+            emailBody = "";
+            head = "";
             MWindow.Hide();
             OVWindow.Hide();
             CWindow.Hide();
             RWindow.Hide();
+            preview.Hide();
         }
         private void b_otrs_send(object sender, RoutedEventArgs e)
         {
-            Microsoft.Office.Interop.Outlook.Application application = new Microsoft.Office.Interop.Outlook.Application();
-            Outlook.MailItem email = (Outlook.MailItem)application.CreateItem(Outlook.OlItemType.olMailItem);
-            email.To = "Kyle.Avery@wsu.edu";
-            email.Subject = "Test";
-            email.Body = "Test please ignore";
-            ((Outlook._MailItem)email).Send();           
+            if (preview.Visibility == System.Windows.Visibility.Hidden)
+            {
+                head = pullHead();
+                emailBody = pullBody();
+                preview.Close();
+                preview = new Email_Preview(head, emailBody);
+                preview.Show();
+            }
+            else
+                preview.Hide();
         }
 
         private void b_overview_Click(object sender, RoutedEventArgs e)
@@ -68,11 +78,16 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
         }
         private void b_exit_Click(object sender, RoutedEventArgs e)
         {
+            string ep = this.GetChildObjects().ToString();
             OVWindow.Close();
             CWindow.Close();
             RWindow.Close();
             MWindow.Close();
+            preview.closeWindows();
+            preview.Close();
+            string ex = this.GetChildObjects().ToString();
             this.Close();
+            
         }
 
         private void b_clear_Click(object sender, RoutedEventArgs e)
@@ -83,6 +98,29 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
             OVWindow.tb_date.Text = "";
             OVWindow.tb_duration.Text = "";
             OVWindow.tb_time.Text = "";
+            /* Clear the Recomendations Window */
+            RWindow.cb_Containment.Text = "";
+            RWindow.cb_Investigation.Text = "";
+            RWindow.cb_Preservation.Text = "";
+            RWindow.cb_Remediation.Text = "";
+            /* Clear the Machine Window */
+            MWindow.tb_count.Text = "";
+            MWindow.tb_dhcpC.Text = "";
+            MWindow.tb_dhcpD.Text = "";
+            MWindow.tb_IP.Text = "";
+            MWindow.tb_Jack.Text = "";
+            MWindow.tb_Location.Text = "";
+            MWindow.tb_MAC.Text = "";
+            MWindow.tb_message.Text = "";
+            MWindow.tb_OffenseNumber.Text = "";
+            MWindow.tb_Resident.Text = "";
+            MWindow.tb_Room.Text = "";
+            MWindow.tb_source.Text = "";
+            MWindow.tb_Switch.Text = "";
+            MWindow.tb_userName.Text = "";
+            MWindow.tb_blacklisted.Text = "";
+            /* Clear Email Preview */
+            preview.tb_emailPV.Text = "";
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -99,6 +137,17 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
                 MWindow.Show();
             else
                 MWindow.Hide();
+        }
+        private string pullBody()
+        {
+            string output = "";
+            return output;
+        }
+        private string pullHead()
+        {
+            string output = "";
+            output = String.Format("{0} - {1} - Network Security Notification", MWindow.tb_IP.Text, MWindow.tb_MAC.Text);
+            return output;
         }
     }
 }

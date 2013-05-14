@@ -24,7 +24,7 @@
         <Label Content="USER NAME" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_userName" HorizontalAlignment="Left" Height="23" Margin="10,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
         <Label Content="Blacklisted IP(s)" HorizontalAlignment="Left" Margin="267,15,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="150" Margin="267,46,0,0" VerticalAlignment="Top" Width="120" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="tb_blacklisted" HorizontalAlignment="Left" Height="150" Margin="267,46,0,0" VerticalAlignment="Top" Width="120" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
         <Label Content="INFORMATION SOURCE" HorizontalAlignment="Left" Margin="414,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_source" HorizontalAlignment="Left" Height="23" Margin="414,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
         <Label Content="MESSAGE" HorizontalAlignment="Left" Margin="414,72,0,0" VerticalAlignment="Top"/>

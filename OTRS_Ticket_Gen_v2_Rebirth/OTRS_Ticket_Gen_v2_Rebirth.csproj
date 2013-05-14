@@ -59,6 +59,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Email Preview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\emailFail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\emailSent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MachineWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +90,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Email Preview.xaml.cs">
+      <DependentUpon>Email Preview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\emailFail.xaml.cs">
+      <DependentUpon>emailFail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\emailSent.xaml.cs">
+      <DependentUpon>emailSent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MachineWindow.xaml.cs">
       <DependentUpon>MachineWindow.xaml</DependentUpon>

@@ -1,0 +1,26 @@
+﻿<Controls:MetroWindow
+ x:Class="OTRS_Ticket_Gen_v2_Rebirth.Email_Preview"
+ xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"   
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Email Preview" Height="525" Width="420" ResizeMode="NoResize" ShowCloseButton="False" ShowMaxRestoreButton="False" ShowMinButton="False">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Red.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <TextBox x:Name="tb_emailPV" HorizontalAlignment="Left" Height="430" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="394" VerticalScrollBarVisibility="Visible"/>
+        <Button x:Name="b_cancel" Content="CANCEL" HorizontalAlignment="Left" Margin="10,462,0,0" VerticalAlignment="Top" Width="197" Click="b_cancel_Click"/>
+        <Button x:Name="b_send" Content="SEND" HorizontalAlignment="Left" Margin="207,462,0,0" VerticalAlignment="Top" Width="197" Click="b_send_Click"/>
+
+    </Grid>
+</Controls:MetroWindow
+>
