@@ -27,7 +27,7 @@
         <ComboBox x:Name="cb_Containment" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="253">
             <ComboBoxItem Content="Network Disconnect - Link Termination"/>
             <ComboBoxItem Content="Network Disconnect - Null Route"/>
-            <ComboBoxItem Content="Power - Off System(s)"/>
+            <ComboBoxItem Content="Power Off The Machine"/>
             <ComboBoxItem Content="None"/>
         </ComboBox>
         <Label Content="Investigation" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>

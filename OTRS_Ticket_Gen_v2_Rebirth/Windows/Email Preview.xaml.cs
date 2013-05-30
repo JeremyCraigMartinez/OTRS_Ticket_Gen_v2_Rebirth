@@ -23,7 +23,6 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
     {
         #region Variables
         private string head;
-        private string body;
         private emailSent sent;
         private emailFail fail;
         #endregion
@@ -31,6 +30,8 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
         public Email_Preview()
         {
             InitializeComponent();
+            sent = new emailSent();
+            fail = new emailFail();
         }
         public Email_Preview(string newHead, string newBody)
         {
@@ -38,15 +39,15 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
             sent = new emailSent();
             fail = new emailFail();
             head = newHead;
-            body = newBody;
+            tb_emailPV.Text = newBody;
         }
         private void b_send_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Office.Interop.Outlook.Application application = new Microsoft.Office.Interop.Outlook.Application();
             Outlook.MailItem email = (Outlook.MailItem)application.CreateItem(Outlook.OlItemType.olMailItem);
-            email.To = "Kyle.Avery@wsu.edu";
+            email.To = "";
             email.Subject = head;
-            email.Body = body;
+            email.Body = tb_emailPV.Text;
             try
             {
                 ((Outlook._MailItem)email).Send();

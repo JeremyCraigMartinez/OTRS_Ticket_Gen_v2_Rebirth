@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,7 +60,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Email Preview.xaml">
+    <Page Include="Windows\blacklist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TargetViewr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Email Preview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,7 +100,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Email Preview.xaml.cs">
+    <Compile Include="Windows\blacklist.xaml.cs">
+      <DependentUpon>blacklist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Index.cs" />
+    <Compile Include="Target.cs" />
+    <Compile Include="Windows\TargetViewr.xaml.cs">
+      <DependentUpon>TargetViewr.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Email Preview.xaml.cs">
       <DependentUpon>Email Preview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\emailFail.xaml.cs">

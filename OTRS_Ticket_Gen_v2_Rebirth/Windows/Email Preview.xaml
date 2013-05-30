@@ -18,7 +18,7 @@
     </Window.Resources>
     <Grid>
         <TextBox x:Name="tb_emailPV" HorizontalAlignment="Left" Height="430" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="394" VerticalScrollBarVisibility="Visible"/>
-        <Button x:Name="b_cancel" Content="CANCEL" HorizontalAlignment="Left" Margin="10,462,0,0" VerticalAlignment="Top" Width="197" Click="b_cancel_Click"/>
+        <Button x:Name="b_cancel" Content="CLOSE" HorizontalAlignment="Left" Margin="10,462,0,0" VerticalAlignment="Top" Width="197" Click="b_cancel_Click"/>
         <Button x:Name="b_send" Content="SEND" HorizontalAlignment="Left" Margin="207,462,0,0" VerticalAlignment="Top" Width="197" Click="b_send_Click"/>
 
     </Grid>
