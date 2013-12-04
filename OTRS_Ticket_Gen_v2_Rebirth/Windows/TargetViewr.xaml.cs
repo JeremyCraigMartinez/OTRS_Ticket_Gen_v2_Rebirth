@@ -148,7 +148,7 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
         {
             CheckBox cb = sender as CheckBox;
             string[] hold = cb.Name.Split('_');
-            int index = Convert.ToInt32(hold[1]);
+            int index = Convert.ToInt32(hold[1]);   //bug?
             if ((bool)cb.IsChecked)
             {
                 targetList[index]._SEND = true;

@@ -25,8 +25,8 @@
         <TextBox x:Name="tb_userName" HorizontalAlignment="Left" Height="23" Margin="239,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" TabIndex="4"/>
         <Label Content="INFORMATION SOURCE" HorizontalAlignment="Left" Margin="414,15,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_source" HorizontalAlignment="Left" Height="23" Margin="413,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TabIndex="2"/>
-        <Label Content="MESSAGE" HorizontalAlignment="Left" Margin="414,77,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_message" HorizontalAlignment="Left" Height="23" Margin="414,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TabIndex="5"/>
+        <Label Content="MESSAGE" HorizontalAlignment="Left" Margin="413,82,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_message" HorizontalAlignment="Left" Height="23" Margin="414,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TabIndex="5"/>
         <Label Content="COUNT" HorizontalAlignment="Left" Margin="414,139,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.527,1.278"/>
         <TextBox x:Name="tb_count" HorizontalAlignment="Left" Height="23" Margin="414,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TabIndex="8"/>
         <Label Content="LOCATION" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top"/>
@@ -40,7 +40,7 @@
         <Label Content="SWITCH INFORMATION" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Width="138"/>
         <TextBox x:Name="tb_Switch" HorizontalAlignment="Left" Height="26" Margin="10,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="627" TabIndex="12"/>
         <Label Content="JACK ID" HorizontalAlignment="Left" Margin="414,201,0,0" VerticalAlignment="Top" Width="52"/>
-        <TextBox x:Name="tb_Jack" HorizontalAlignment="Left" Height="23" Margin="412,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" TabIndex="11"/>
+        <TextBox x:Name="tb_Jack" HorizontalAlignment="Left" Height="23" Margin="414,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" TabIndex="11"/>
         <Label Content="DHCP DEPARTMENT" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_dhcpD" HorizontalAlignment="Left" Height="23" Margin="10,359,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" TabIndex="13"/>
         <Label Content="DHCP SUPPORT CONTACT" HorizontalAlignment="Left" Margin="239,328,0,0" VerticalAlignment="Top"/>

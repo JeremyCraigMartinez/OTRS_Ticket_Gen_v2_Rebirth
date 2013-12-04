@@ -89,15 +89,16 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
         }
         private void b_exit_Click(object sender, RoutedEventArgs e)
         {
-            OVWindow.Close();
-            CWindow.Close();
-            RWindow.Close();
-            preview.closeWindows();
-            preview.Close();
-            TVWindow.closeWindows();
-            TVWindow.Close();
-            blWindow.Close();
-            this.Close();
+            //OVWindow.Close();
+            //CWindow.Close();
+            //RWindow.Close();
+            //preview.closeWindows();
+            //preview.Close();
+            //TVWindow.closeWindows();
+            //TVWindow.Close();
+            //blWindow.Close();
+            //this.Close();
+            this.Hide();
         }
         private void b_clear_Click(object sender, RoutedEventArgs e)
         {
@@ -121,6 +122,9 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
             blWindow.tb_blIP.Text = "";
             blWindow.tb_confidence.Text = "";
             blWindow.tb_descr.Text = "";
+            /* Reset the Index on Clear */
+            machineIndex = new Index();
+            machineList.Clear();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -152,7 +156,7 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
                 OVWindow.cb_securityAlertLevel.Text, OVWindow.cb_securityAlertType.Text, OVWindow.cb_initial.Text, 
                 OVWindow.tb_date.Text, OVWindow.tb_time.Text, OVWindow.tb_duration.Text);
             /* Target Information */
-            output += String.Format("Target Information\n");
+            output += String.Format("Suspect System Information\n");
             foreach(Target T in machineList)
             {
                 if(!T._DELETE && T._SEND)
@@ -163,95 +167,127 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
             if (blWindow.tb_blIP.Text != "")
             {
                 string[] temp = blWindow.tb_blIP.Text.Split(new string[] { "\r\n", ",", ", ", ";", "; ", " " }, StringSplitOptions.RemoveEmptyEntries);
-                output += String.Format("This machine has been observed reaching out to these known malicious IP addresses:\n");
+                output += String.Format("This machine has been observed reaching out to the following known malicious addresses: ");
+                bool first = true;
                 foreach (string s in temp)
                 {
-                    output += String.Format("\t{0}\n", s);
+                    if (first)
+                    {
+                        output += String.Format("{0}", s);
+                        first = false;
+                    }
+                    else
+                    {
+                        output += String.Format(", ");
+                        output += String.Format("{0}", s);
+                    }
                 }
+                output += String.Format(".");
             }
             if (blWindow.tb_descr.Text != "")
                 output += String.Format("\n{0}", blWindow.tb_descr.Text);
             else
                 output += String.Format("\n[Describe The Behavior Observed]");
             /* Recommendations */
-            output += String.Format("\n\nRecomendations\nTake the following actions in the outlined order:\n");
-            output += String.Format("Preservation: {0}: ", RWindow.cb_Preservation.Text);
+            output += String.Format("\n\nRecommendations\nTake the following actions in the outlined order:\n");
+            if (RWindow.cb_Preservation.Text != "None" && RWindow.cb_Preservation.Text != "")
+                output += String.Format("Preservation: {0} - ", RWindow.cb_Preservation.Text);
             switch (RWindow.cb_Preservation.Text)
             {
                 case "PCAP":
-                    output += String.Format("A PCAP, or packet capture, consists of an application programming interface for capturing network traffic, " + 
-                        "for monitoring the packets on the computer use WireShark and for monitoring a computers packets from another machine use Snort.\n\n");
+                    output += String.Format("A packet capture, consists of an application programming interface for capturing network traffic. " + 
+                        "For monitoring the packets one of the tools that we use is WireShark and it may come in handy for you too.\n\n");
                     break;
                 case "Memory Image":
                     output += String.Format("A Memory Image is an exact replica of the machine's RAM memory at that time. We recommend using FTK Imager Lite to capture the memory image.\n\n");
                     break;
                 case "Disk Image":
-                    output += String.Format("A disk image is an exact replica of the machine's hard drive. We recommend using FTK Imager Lite to capture the disk image.\n\n");
+                    output += String.Format("A disk image is an exact replica of the machine's hard drive. One tool we use for disk imaging is FTK Imager Lite. Any other program that images disks we recommend that it images in bit for bit format to capture, and prefereable puts the disk image into a read only format.\n\n");
                     break;
-                case "None":
-                    output += String.Format("In this case no data preservation is required.\n\n");
-                    break;
+                //case "None":
+                //    output += String.Format("In this case no specific preservation is recommended.\n\n");
+                //    break;
             }
-            output += String.Format("Containment: {0}: ", RWindow.cb_Containment.Text);
+            if (RWindow.cb_Containment.Text != "None" && RWindow.cb_Containment.Text != "")
+                output += String.Format("Containment: {0} - ", RWindow.cb_Containment.Text);
             switch(RWindow.cb_Containment.Text)
             {
                 case "Network Disconnect - Link Termination":
-                    output += String.Format("Cutting off network access will prevent the network activity from continuing as well as prevent any command and control communications that are taking place. So simply remove the machine's lan cable and/or turn of the machine's wireless capabilites.\n\n");
+                    output += String.Format("Cutting off network access will prevent the network activity from continuing as well as prevent any command and control communications that are taking place. So simply remove the machine's lan cable and/or turn of the machine's wireless capabilities.\n\n");
                     break;
                 case "Network Disconnect - Null Route":
-                    output += String.Format("A null route is a network route that goes no where or is a forwarded to an illegal IP address. To achieve a null route configure the IP with a special route flag, or forward the packets to an illegal route such as 0.0.0.0.\n\n");
+                    output += String.Format("A null route is a network route that goes nowhere or is a forwarded to an illegal IP address. To achieve a null route configure the IP with a special route flag, or forward the packets to an illegal route such as 0.0.0.0.\n\n");
                     break;
                 case "Power Off The Machine":
                     output += String.Format("Due to spreading malicious traffic from this machine, please turn it off and remove it from the network.\n\n");
                     break;
-                case "None":
-                    output += String.Format("In this case no containment is required.\n\n");
-                    break;
+                //case "None":
+                //    output += String.Format("In this case no specific containment is recommended.\n\n");
+                //    break;
             }
-            output += String.Format("Investigation: {0}: ", RWindow.cb_Investigation.Text);
+            if (RWindow.cb_Investigation.Text != "None" && RWindow.cb_Investigation.Text != "")
+                output += String.Format("Investigation: {0} - ", RWindow.cb_Investigation.Text);
             switch (RWindow.cb_Investigation.Text)
             {
                 case "Offline Anti - Malware Scan":
-                    output += String.Format("After taking the system offline run an AV scan. We recommend using Windows Defender Offline during this process.\n\n");
+                    output += String.Format("After taking the system offline run an AV scan. One tool that we have found useful is Windows Defender Offline during this process.\n\n");
                     break;
                 case "Log Review":
-                    output += String.Format("Review the logs from the network and see if the machine is still producing malicious traffic.\n\n");
+                    output += String.Format("Review any available logs from the network and system.\n\n");
                     break;
                 case "Network Traffic Analysis":
-                    output += String.Format("Run a network traffic analysis and see if the machine is still producing malicious traffic.\n\n");
+                    output += String.Format("Review any available logs from the network and system.\n\n");
                     break;
                 case "Forensic Drive / Memory Analysis":
                     output += String.Format("Analyze the data that was gained from imaging the machine, and find the source of the issue.\n\n");
                     break;
-                case "None":
-                    output += String.Format("In this case no further investigation is required.\n\n");
-                    break;
+                //case "None":
+                //    output += String.Format("In this case no specififc investigation is recommended.\n\n");
+                //    break;
             }
-            output += String.Format("Remediation: {0}: ", RWindow.cb_Remediation.Text);
+            if (RWindow.cb_Remediation.Text != "None" && RWindow.cb_Remediation.Text != "")
+                output += String.Format("Remediation: {0} - ", RWindow.cb_Remediation.Text);
             switch (RWindow.cb_Remediation.Text)
             {
                 case "System Rebuild":
-                    output += String.Format("After imaging the machine, back up any important data, install a fresh image onto the machine, and place the data back into the machine for the user.\n\n");
+                    output += String.Format("Due to the stealthy nature of the malware an AV scan is highly unlikely to capture all of the infection. So a full system rebuild or restore is recommended in order to get the machine back to a clean state.\n\n");
                     break;
                 case "Anti-Malware Clean-Up":
-                    output += String.Format("Using AV software remove any malicious items from the computer.\n\n");
+                    output += String.Format("Using your preffered offline AV software remove any malicious items from the computer.\n\n");
                     break;
                 case "Data Sanitization":
-                    output += String.Format("After imaging the machine don't back up any data and install a fresh image on the machine.\n\n");
+                    output += String.Format("Due to the stealthy nature of the malware an AV scan is highly unlikely to capture all of the infection. In this case a full system rebuild is recommended because the personal data is highly likley to be infected and can't be risked moving the infection back into a new clean system.\n\n");
                     break;
-                case "None":
-                    output += String.Format("In this case no remediation is required.\n\n");
-                    break;
+                //case "None":
+                //    output += String.Format("In this case no specific remediation is recommended.\n\n");
+                //    break;
             }
-            output += String.Format("\n[Insert Prevention Ideas Here]\n\nPlease remember to email the Network Security Team back with the findings!\n\n"+ 
+            output += String.Format("\nPrevention: [Insert Prevention Ideas Here]\n\nPlease remember to email the Network Security Team back with the findings or if you have any further questions!\n\n" + 
                 "Thank You,\n{0}\n{1}", CWindow.tb_name.Text, CWindow.tb_phoneNumber.Text);
             return output;
         }
         private string pullHead()
         {
-            string output = "";
-            output = String.Format("Network Security Notification - {0}", OVWindow.cb_securityAlertType.Text);
-            return output;
+            if (machineList.Count != 0)
+            {
+                int targets = 0;
+                int target = 0;
+                foreach (Target T in machineList)
+                    if (T._SEND == true)
+                    {
+                        targets++;
+                        target = targets;
+                    }
+                string output = "";
+                output = String.Format("Network Security Notification - {0}", OVWindow.cb_securityAlertType.Text);
+                if (targets == 1)
+                    output += String.Format(" - {0} - {1} - {2}", machineList[target]._IP, machineList[target]._MAC, machineList[target]._LOCATION);
+                else
+                    output += String.Format(" - multiple suspect systems - {0}", machineList[0]._LOCATION);
+                return output;
+            }
+            else
+                return "";
         }
 
         private void b_b_Click(object sender, RoutedEventArgs e)
