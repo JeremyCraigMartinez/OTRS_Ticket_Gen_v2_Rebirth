@@ -53,46 +53,9 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
             globalIndex = worldIndex;
             MWindow = new MachineWindow();
             MWindow.Hide();
-            System.Windows.Controls.DockPanel temp2 = new DockPanel();
-            System.Windows.Controls.Label l = new Label();
-            l.Content = "Send to Email";
-            l.Measure(new Size(Double.PositiveInfinity, Double.PositiveInfinity));
-            l.Arrange(new Rect(l.DesiredSize));
-            width = l.ActualWidth;
-            height = l.ActualHeight;
-            temp2.Children.Add(l);
-            l = new Label();
-            l.Content = "Target Overview";
-            temp2.Children.Add(l);
-            sp.Children.Add(temp2);
-            if (targetList.Count != 0)
-            {
-                foreach (Target t in targetList)
-                {
-                    /* Make sure the target hasn't been "deleted" */
-                    if (!t._DELETE)
-                    {
-                        /* Dock Panel in a Stack Panel */
-                        System.Windows.Controls.DockPanel temp = new DockPanel();
-                        /* Check Box */
-                        System.Windows.Controls.CheckBox newCheckBox = new CheckBox();
-                        newCheckBox.Name = String.Format("cb_{0}", t._INDEX.ToString());
-                        newCheckBox.Width = width;
-                        newCheckBox.Height = height;
-                        newCheckBox.IsChecked = t._SEND;
-                        newCheckBox.Click += new RoutedEventHandler(checkBox_stateChanged);
-                        temp.Children.Add(newCheckBox);
-                        /* Button */
-                        System.Windows.Controls.Button newBtn = new Button();
-                        newBtn.Click += new RoutedEventHandler(button_Click);
-                        newBtn.Name = String.Format("b_{0}", (list.Count - 1).ToString());
-                        newBtn.Content = String.Format("{0} - {1} - {2}", t._IP, t._MAC, t._LOCATION);
-                        temp.Children.Add(newBtn);
-                        sp.Children.Add(temp);
-                    }
-                }
-            }
+            refresh();
         }
+
         public void refresh()
         {
             sp.Children.Clear();

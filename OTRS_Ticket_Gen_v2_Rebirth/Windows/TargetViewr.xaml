@@ -25,17 +25,18 @@
                 <BlurEffect Radius="2"/>
             </Border.Effect>
         </Border>
-        <Label Content="Target Preview" HorizontalAlignment="Left" Margin="2,10,0,0" VerticalAlignment="Top" Height="26" Width="378" Grid.Column="1"/>
-        <Label x:Name="l_targetP" HorizontalAlignment="Left" Margin="2,41,0,0" VerticalAlignment="Top" Height="365" Width="378" Grid.Column="1"/>
-        <Button x:Name="b_edit" Content="Edit Target" HorizontalAlignment="Left" Margin="201,411,0,0" VerticalAlignment="Top" Width="179" Grid.Column="1" Height="25" Click="b_edit_Click"/>
-        <Button x:Name="b_addTarget" Content="Add Target" HorizontalAlignment="Left" Margin="201,441,0,0" VerticalAlignment="Top" Width="179" Grid.Column="1" Height="25" Click="b_addTarget_Click"/>
+        <Label Content="Target Preview" HorizontalAlignment="Stretch" Margin="2,10,0,0" VerticalAlignment="Top" Height="26" Grid.Column="1"/>
+        <Label x:Name="l_targetP" HorizontalAlignment="Stretch" Margin="2,41,0,0" VerticalAlignment="Top" Height="365" Grid.Column="1"/>
+        <Button x:Name="b_edit" Content="Edit Target" HorizontalAlignment="Stretch" Margin="201,411,0,0" VerticalAlignment="Top" Grid.Column="1" Height="25" Click="b_edit_Click"/>
+        <Button x:Name="b_addTarget" Content="Add Target" HorizontalAlignment="Stretch" Margin="201,441,0,0" VerticalAlignment="Top" Grid.Column="1" Height="25" Click="b_addTarget_Click"/>
         <Button x:Name="b_close" Content="Close" HorizontalAlignment="Left" Margin="10,441,0,0" VerticalAlignment="Top" Width="186" Click="b_close_Click" Grid.Column="1" Height="25"/>
+        <Button x:Name="b_Delete" Content="DELETE TARGET" Grid.Column="1" HorizontalAlignment="Left" Margin="10,411,0,0" VerticalAlignment="Top" Width="186" Click="b_Delete_Click"/>
         <Border BorderBrush="Black" BorderThickness="0,1" Margin="2,41,0,65" Grid.Column="1">
             <Border.Effect>
                 <BlurEffect Radius="2"/>
             </Border.Effect>
         </Border>
-        <StackPanel x:Name="sp" HorizontalAlignment="Left" Height="506" VerticalAlignment="Top" Width="362"/>
-        <Button x:Name="b_Delete" Content="DELETE TARGET" Grid.Column="1" HorizontalAlignment="Left" Margin="10,411,0,0" VerticalAlignment="Top" Width="186"/>
+        <StackPanel x:Name="sp" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        
     </Grid>
 </Controls:MetroWindow>

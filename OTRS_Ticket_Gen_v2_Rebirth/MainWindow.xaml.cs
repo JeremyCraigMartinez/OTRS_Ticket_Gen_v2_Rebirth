@@ -270,17 +270,25 @@ namespace OTRS_Ticket_Gen_v2_Rebirth
         {
             if (machineList.Count != 0)
             {
-                int targets = 0;
+                int target_count = 0;
                 int target = 0;
-                foreach (Target T in machineList)
-                    if (T._SEND == true)
-                    {
-                        targets++;
-                        target = targets;
-                    }
+                if (machineList.Count > 1)
+                {
+                    foreach (Target T in machineList)
+                        if (T._SEND == true)
+                        {
+                            target_count++;
+                            target = T._INDEX;
+                        }
+                }
+                else
+                {
+                    target_count = 1;
+                    target = 0;
+                }
                 string output = "";
                 output = String.Format("Network Security Notification - {0}", OVWindow.cb_securityAlertType.Text);
-                if (targets == 1)
+                if (target_count == 1)
                     output += String.Format(" - {0} - {1} - {2}", machineList[target]._IP, machineList[target]._MAC, machineList[target]._LOCATION);
                 else
                     output += String.Format(" - multiple suspect systems - {0}", machineList[0]._LOCATION);
